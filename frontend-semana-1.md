@@ -12,7 +12,7 @@ En los siguientes apartados os guiamos en la implementación de cada una de esta
 
 ## Tarea 1: visualización de las películas que se pueden ver hoy
 
-- En el módulo que contendrá los componentes relacionados con la cartelera, `catalog` de aquí en adelante, podéis añadir el componente `Billoard`. Este componente mostrará las películas de la cartelera en un día determinado (inicialmente, el día actual). En concepto, este componente es similar a `FindProductsResult` en pa-shop (apartado 7.2), aunque sin paginación. A modo de ejemplo, el componente `Billbaord` podría implementarse con un estilo similar a este:
+- En el módulo que contendrá los componentes relacionados con la cartelera, `catalog` de aquí en adelante, podéis añadir el componente `Billboard`. Este componente mostrará las películas de la cartelera en un día determinado (inicialmente, el día actual). En concepto, este componente es similar a `FindProductsResult` en pa-shop (apartado 7.2), aunque sin paginación. A modo de ejemplo, el componente `Billboard` podría implementarse con un estilo similar a este:
 
 ```js
 import {useSelector} from 'react-redux';
@@ -37,7 +37,7 @@ export default Billboard;
 
 ```diff
 - import {FormattedMessage} from 'react-intl';
-+ import {Billoard} from ../../catalog;
++ import {Billboard} from ../../catalog;
 
 const Home = () => (
 -    <div className="text-center">
@@ -136,4 +136,4 @@ Los cambios introducidos en el código asumen que:
 
 - La acción `getBillboard`, desarrollada como parte de la tarea 1, ahora también debe provocar que en el estado de Redux del módulo `catalog` quede almacenada la fecha que recibe como parámetro.
 
-Tras realizar esta tarea correctamente, se podrá seleccionar visualizar la cartelera del día seleccionado.
+Tras realizar esta tarea correctamente, se podrá visualizar la cartelera del día seleccionado.

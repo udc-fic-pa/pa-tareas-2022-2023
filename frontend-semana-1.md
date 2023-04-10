@@ -31,7 +31,7 @@ const Billboard = () => {
 export default Billboard;                         
 ```
 
-- El código anterior asume que el selector `getMovies` devuelve las películas de la cartelera del estado de Redux del módulo `catalog`. El valor devuelto por el selector `getMovies` es un array, donde cada elemento es un objeto que contiene 3 propiedades: identificador de película, nombre de película y un array con las sesiones de esa película (cada sesión es un objeto con 2 propiedades: identificador de sesión y hora). El código también asume que el componente `Movies` (en el mismo módulo) muestra las películas que recibe en la propiedad `movies`.
+- El código anterior asume que el selector `getMovies` devuelve las películas de la cartelera del estado de Redux del módulo `catalog`. El valor devuelto por el selector `getMovies` es un array, donde cada elemento es un objeto que contiene 3 propiedades: identificador de película, nombre de película y un array con las sesiones de esa película (cada sesión es un objeto con 2 propiedades: identificador de sesión y fecha). El código también asume que el componente `Movies` (en el mismo módulo) muestra las películas (con las horas de sus sesiones) que recibe en la propiedad `movies`.
 
 - Para que la cartelera pueda mostrarse en la pantalla principal del frontend, es necesario modificar el componente `Home` (en `src/modules/app/components`) que incluye pa-project para que muestre el componente `Billboard`:
 

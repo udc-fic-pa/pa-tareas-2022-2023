@@ -43,7 +43,7 @@ const Home = () => (
 -    <div className="text-center">
 -        <FormattedMessage id="project.app.Home.welcome"/>
 -    </div>
-+   <Billboard>
++   <Billboard/>
 );
 
 export default Home;
@@ -90,7 +90,7 @@ const Billboard = () => {
 
     return (
 +       <div>
-+           <DateSelector id="billboardDate" className="custom-select my-1 mr-sm-2">        
++           <DateSelector id="billboardDate" className="custom-select my-1 mr-sm-2"/>        
 -       <Movies movies={movies}/>
 +           <Movies movies={movies}/>
 +       <div>
@@ -120,9 +120,9 @@ const Billboard = () => {
 
     return (
        <div>
--           <DateSelector id="billboardDate" className="custom-select my-1 mr-sm-2">
-+           <DateSelector id="billboardDate" className="custom-select my-1 mr-sm-2">
-+               value={billboardDate} onChange={e => dispatch(actions.getBillboard(e.target.value))}
+-           <DateSelector id="billboardDate" className="custom-select my-1 mr-sm-2"/>
++           <DateSelector id="billboardDate" className="custom-select my-1 mr-sm-2"
++               value={billboardDate} onChange={e => dispatch(actions.getBillboard(e.target.value))} />
            <Movies movies={movies}/>
        <div>
     );

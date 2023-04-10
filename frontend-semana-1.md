@@ -1,8 +1,6 @@
 # Tareas para la semana del 17 de abril
 
-El objetivo de esta semana es implementar la visualización de la cartelera. Este caso de uso guarda cierta similitud con el caso de uso de búsqueda de productos en pa-shop (apartado 7.2), aunque tiene diferencias significativas.
-
-En primer lugar, la pantalla principal del frontend debe mostrar la cartelera con las películas que se pueden ver hoy. En segundo lugar, la cartelera debe incluir un desplegable que permite seleccionar el día (hoy o cualquiera de los 6 siguientes días).
+El objetivo de esta semana es implementar la visualización de la cartelera. Este caso de uso guarda cierta similitud con el caso de uso de búsqueda de productos en pa-shop (apartado 7.2), aunque tiene diferencias significativas. En primer lugar, la pantalla principal del frontend debe mostrar la cartelera con las películas que se pueden ver hoy. En segundo lugar, la cartelera debe incluir un desplegable que permite seleccionar el día (hoy o cualquiera de los 6 siguientes días).
 
 Para facilitar la implementación de la visualización de la cartelera, podéis descomponerla en tres tareas:
 
@@ -14,7 +12,7 @@ En los siguientes apartados os guiamos en la implementación de cada una de esta
 
 ## Tarea 1: visualización de las películas que se pueden ver hoy
 
-- En el módulo que contendrá los componentes relacionados con la cartelera, `catalog` de aquí en adelante, podéis añadir el componente `Billoard`. Este componente mostrará las películas de la cartelera en un día determinado (inicialmente, el día actual). En concepto, este componente es similar a `FindProductsResult` en pa-shop, aunque sin paginación. A modo de ejemplo, el componente `Billbaord` podría implementarse con un estilo similar a este:
+- En el módulo que contendrá los componentes relacionados con la cartelera, `catalog` de aquí en adelante, podéis añadir el componente `Billoard`. Este componente mostrará las películas de la cartelera en un día determinado (inicialmente, el día actual). En concepto, este componente es similar a `FindProductsResult` en pa-shop (apartado 7.2), aunque sin paginación. A modo de ejemplo, el componente `Billbaord` podría implementarse con un estilo similar a este:
 
 ```js
 import {useSelector} from 'react-redux';
@@ -33,7 +31,7 @@ const Billboard = () => {
 export default Billboard;                         
 ```
 
-- El código anterior asume que el selector `getMovies` devuelve las películas de la cartelera del estado de Redux del módulo `catalog`. También asume que el componente `Movies` (en el mismo módulo) muestra las películas (con las horas de las sesiones en las que se puede ver cada una) que recibe en la propiedad `movies`.
+- El código anterior asume que el selector `getMovies` devuelve las películas de la cartelera del estado de Redux del módulo `catalog`. El valor devuelto por el selector `getMovies` es un array, donde cada elemento es un objeto que contiene 3 propiedades: identificador de película, nombre de película y un array con las sesiones de esa película (cada sesión es un objeto con 2 propiedades: identificador de sesión y hora). El código también asume que el componente `Movies` (en el mismo módulo) muestra las películas que recibe en la propiedad `movies`.
 
 - Para que la cartelera pueda mostrarse en la pantalla principal del frontend, es necesario modificar el componente `Home` (en `src/modules/app/components`) que incluye pa-project para que muestre el componente `Billboard`:
 
@@ -73,7 +71,7 @@ const App = () => {
 ...
 ```
 
-Los cambios introducidos en el código asumen que la acción `catalog.actions.getBillboard` provoca que se realize una petición al backend para recuperar la cartelera del día solicitado y que ésta quede almacenada en el estado de Redux del módulo `catalog` (accesible mediante el selector `getMovies` de este módulo).
+Los cambios introducidos en el código asumen que la acción `catalog.actions.getBillboard` provoca que se realize una petición al backend para recuperar la cartelera del día solicitado y que ésta quede almacenada en el estado de Redux del módulo `catalog` (accesible mediante el selector `getMovies` de este módulo). La implementación de esta acción es parecida a la de la acción `findProducts` en pa-shop (apartado 7.2).
 
 Tras realizar esta tarea correctamente, la cartelera mostrará las películas que se pueden ver hoy.
 

@@ -8,7 +8,7 @@ Para facilitar la implementación de la visualización de la cartelera, podéis 
 - Tarea 2: añadir un componente que permite seleccionar el día.
 - Tarea 3: hacer que la cartelera muestre las películas del día seleccionado.
 
-En los siguientes apartados os guiamos en la implementación de cada una de estas tareas.
+En los siguientes apartados os guiamos en la implementación de cada una de estas tareas. Estos apartados asumen que la operación de recuperación de la cartelera en el backend recibe como entrada la fecha de la cartelera. Si se ha modelado de forma diferente (e.g. recibe un número de día en lugar de una fecha), es necesario adaptar ligeramente el código que figura en los siguientes apartados.
 
 ## Tarea 1: visualización de las películas que se pueden ver hoy
 
@@ -71,7 +71,7 @@ const App = () => {
 ...
 ```
 
-Los cambios introducidos en el código asumen que la acción `catalog.actions.getBillboard` provoca que se realize una petición al backend para recuperar la cartelera del día solicitado y que ésta quede almacenada en el estado de Redux del módulo `catalog` (accesible mediante el selector `getMovies` de este módulo). La implementación de esta acción es parecida a la de la acción `findProducts` en pa-shop (apartado 7.2).
+Los cambios introducidos en el código asumen que la acción `catalog.actions.getBillboard` provoca que se realize una petición al backend para recuperar la cartelera del día solicitado y que ésta quede almacenada en el estado de Redux del módulo `catalog` (accesible mediante el selector `getMovies` de este módulo). La implementación de esta acción es parecida a la de la acción `findProducts` en pa-shop (apartado 7.2). El hook `useEffect` (apartado 7.3) provocará que esa acción se ejecute cuando se accede inicialmente a la aplicación, de forma que la cartelera mostrará automáticamente las películas que todavía se pueden ver hoy.
 
 Tras realizar esta tarea correctamente, la cartelera mostrará las películas que se pueden ver hoy.
 

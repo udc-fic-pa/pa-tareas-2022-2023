@@ -31,7 +31,12 @@ const addDaysToDate = (date, days) => {
     return newDate;
 }
 
-const isoDate = date => date.toISOString().split("T")[0];
+const isoDate = date => {
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    return `${year}-${month<10?`0${month}`:`${month}`}-${day<10?`0${day}`:`${day}`}`;
+}
 
 DateSelector.propTypes = {
     selectProps: PropTypes.object
